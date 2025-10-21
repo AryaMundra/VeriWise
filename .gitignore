@@ -1,0 +1,61 @@
+# Node.js dependencies
+node_modules/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment directories
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python environment files
+*.env
+*.env.*
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# macOS Finder directory attributes
+.DS_Store
+
+# Windows file system files
+Thumbs.db
+Desktop.ini
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python distribution files
+*.egg
+*.egg-info
+dist/
+build/
+
+# Logs
+*.log
+logs/
+
+# Coverage files
+.coverage
+*.coveragerc
+*.tox/
+*.nox/
+*.coverage
+*.hypothesis/
+.cache/
+
+# Environment variable files
+.env.local
+.env.production
+.env.development
+
+# dotenv files
+.env

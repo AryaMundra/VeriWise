@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+python-multipart
+pydantic
+opencv-python
+moviepy
+numpy
+requests
+python-dotenv
+openai
+google-generativeai
+python-dotenv
+requests
+torch
+transformers
+librosa
+python-multipart 
