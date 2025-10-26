@@ -23,7 +23,7 @@ class PipelineUsage:
 @dataclass
 class Evidence:
     claim: str = None
-    text: str = None  # evidence text
+    text: str = None 
     url: str = None
     reasoning: str = None
     relationship: str = None

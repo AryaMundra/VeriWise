@@ -17,7 +17,7 @@ class GeminiClient(BaseClient):
         self,
         model: str = "gemini-2.5-flash",
         api_config: dict = None,
-        max_requests_per_minute: int = 8,  # Free tier: 60 RPM for Flash, 15 for Pro
+        max_requests_per_minute: int = 8,
         request_window: int = 60,
     ):
         """
@@ -45,7 +45,7 @@ class GeminiClient(BaseClient):
             "top_p": 0.95,
             "top_k": 40,
             "max_output_tokens": 16000,
-            "response_mime_type": "application/json",  # Ensures JSON output
+            "response_mime_type": "application/json", 
         }
         
         self.client = genai.GenerativeModel(
@@ -67,24 +67,16 @@ class GeminiClient(BaseClient):
         seed = kwargs.get("seed", 5)
         if not isinstance(seed, int):
             raise ValueError("Seed must be an integer.")
-        
-        # Note: Gemini doesn't support seed parameter directly
-        # For reproducibility, consider using temperature=0
-        
-        # Convert OpenAI-style messages to Gemini format
         prompt = self._convert_messages_to_prompt(messages)
         
         try:
-            # Generate content with Gemini
             response = self.client.generate_content(prompt)
             
             # Extract text from response
             if response.candidates:
                 r = response.candidates[0].content.parts[0].text
             else:
-                raise ValueError("No response candidates returned from Gemini")
-            
-            # Log usage if available
+                raise ValueError("No response candidates returned ")
             if hasattr(response, "usage_metadata") and response.usage_metadata:
                 self._log_usage(usage_dict=response.usage_metadata)
             else:
@@ -149,8 +141,6 @@ class GeminiClient(BaseClient):
         Returns:
             Request length (currently returns 1 for simplicity)
         """
-        # Could be enhanced to return actual token count
-        # using genai.count_tokens() if needed
         return 1
 
     def construct_message_list(

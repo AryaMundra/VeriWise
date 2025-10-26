@@ -179,9 +179,7 @@ async def analyze(
         results: Dict[str, Any] = {}
         results["text"] = text
 
-        # -----------------------
         # Run modules in parallel
-        # -----------------------
 
         if text and image_path:
             tasks = [

@@ -16,13 +16,13 @@ class SerperEvidenceRetriever:
         self, 
         llm_client, 
         api_config: dict = None,
-        max_evidences_per_claim: int = 5,  # ✅ ADD THIS LINE
+        max_evidences_per_claim: int = 5, 
     ):
         """Initialize the SerperEvidenceRetrieve class"""
         self.lang = "en"
         self.serper_key = api_config["SERPER_API_KEY"]
         self.llm_client = llm_client
-        self.max_evidences_per_claim = max_evidences_per_claim  # ✅ ADD THIS LINE
+        self.max_evidences_per_claim = max_evidences_per_claim 
 
     def retrieve_evidence(self, claim_queries_dict, top_k: int = 3, snippet_extend_flag: bool = True):
         """Retrieve evidences for the given claims
@@ -46,8 +46,7 @@ class SerperEvidenceRetriever:
         for claim, queries in claim_queries_dict.items():
             evidences_per_query_L = evidence_list[i : i + len(queries)]
             all_evidences = [e for evidences in evidences_per_query_L for e in evidences]
-            
-            # ✅ ADD THESE 2 LINES - Limit evidences per claim
+
             claim_evidence_dict[claim] = all_evidences[:self.max_evidences_per_claim]
             logger.info(f"Collected {len(claim_evidence_dict[claim])} evidences for claim (limited to {self.max_evidences_per_claim})")
             
@@ -55,8 +54,7 @@ class SerperEvidenceRetriever:
         assert i == len(evidence_list)
         logger.info("Collect evidences done!")
         return claim_evidence_dict
-
-    # ✅ REST OF THE CODE STAYS EXACTLY THE SAME
+    
     def _retrieve_evidence_4_all_claim(
         self, query_list: list[str], top_k: int = 3, snippet_extend_flag: bool = True
     ) -> list[list[str]]:
@@ -87,13 +85,12 @@ class SerperEvidenceRetriever:
 
         # get the responses for queries with an answer box
         query_url_dict = {}
-        url_to_date = {}  # TODO: decide whether to use date
+        url_to_date = {}  
         _snippet_to_check = []
         for i, (query, response) in enumerate(zip(query_list, serper_responses)):
             if query != response.get("searchParameters").get("q"):
                 logger.error("Serper change query from {} TO {}".format(query, response.get("searchParameters").get("q")))
 
-            # TODO: provide the link for the answer box
             if "answerBox" in response:
                 if "answer" in response["answerBox"]:
                     evidences[i] = [
@@ -109,28 +106,26 @@ class SerperEvidenceRetriever:
                             "url": "Google Answer Box",
                         }
                     ]
-            # TODO: currently --- if there is google answer box, we only got 1 evidence, otherwise, we got multiple, this will deminish the value of the google answer.
             else:
-                topk_results = response.get("organic", [])[:top_k]  # Choose top 5 response
+                topk_results = response.get("organic", [])[:top_k]  
 
                 if (len(_snippet_to_check) == 0) or (not snippet_extend_flag):
                     evidences[i] += [
                         {"text": re.sub(r"\n+", "\n", _result["snippet"]), "url": _result["link"]} for _result in topk_results
                     ]
 
-                # Save date for each url
                 url_to_date.update({_result.get("link"): _result.get("date") for _result in topk_results})
-                # Save query-url pair, 1 query may have multiple urls
+
                 query_url_dict.update({query: [_result.get("link") for _result in topk_results]})
                 _snippet_to_check += [_result["snippet"] if "snippet" in _result else "" for _result in topk_results]
 
-        # return if there is no snippet to check or snippet_extend_flag is False
+
         if (len(_snippet_to_check) == 0) or (not snippet_extend_flag):
             return evidences
 
         # crawl web for queries without answer box
         responses = crawl_web(query_url_dict)
-        # Get extended snippets based on the snippet from serper
+
         flag_to_check = [_item[0] for _item in responses]
         response_to_check = [_item[1] for _item in responses]
         url_to_check = [_item[2] for _item in responses]
@@ -155,15 +150,14 @@ class SerperEvidenceRetriever:
                 if snippet_start == -1:
                     return snippet
                 else:
-                    pre_context_range = 0  # Number of characters around the snippet to display
-                    post_context_range = 500  # Number of characters around the snippet to display
+                    pre_context_range = 0  
+                    post_context_range = 500  
                     start = max(0, snippet_start - pre_context_range)
                     end = snippet_start + len(snippet) + post_context_range
                     return text[start:end] + " ..."
             else:
                 return snippet
 
-        # Question: if os.cpu_count() cause problems when running in parallel?
         with ThreadPoolExecutor(max_workers=os.cpu_count()) as executor:
             _extended_snippet = list(
                 executor.map(

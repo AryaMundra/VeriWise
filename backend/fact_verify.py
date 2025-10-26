@@ -23,11 +23,6 @@ class FactCheckApp:
         self.gemini_keys = self._extract_gemini_keys()
         self.multi_key_mode = enable_multi_key and len(self.gemini_keys) > 1
 
-        if self.multi_key_mode:
-            print(f"🚀 MULTI-KEY MODE ENABLED: {len(self.gemini_keys)} API keys detected!")
-        else:
-            print(f"📌 Single-key mode: {self.gemini_keys[0][:15]}...")
-
         # Initialize FactCheck
         self.factcheck = FactCheck(
             default_model="gemini-2.5-flash",
@@ -43,7 +38,6 @@ class FactCheckApp:
                 api_keys=self.gemini_keys,
                 llm_client_factory=self._create_gemini_client
             )
-        print("✅ FactCheck pipeline initialized")
 
     def _load_api_keys(self) -> dict:
         """Load API keys from env or config file."""
@@ -64,7 +58,7 @@ class FactCheckApp:
                 pass
 
         if not api_config.get("GEMINI_API_KEY"):
-            raise ValueError("❌ GEMINI_API_KEY not found! Set in .env or api_config.yaml")
+            raise ValueError("GEMINI_API_KEY not found! Set in .env or api_config.yaml")
         return api_config
 
     def _extract_gemini_keys(self) -> List[str]:
@@ -96,7 +90,6 @@ class FactCheckApp:
     ) -> Dict:
         """Process input and return fact-check results."""
         try:
-            print("🔄 Processing input...")
 
             # Determine input type
             content = ""
@@ -134,59 +127,18 @@ class FactCheckApp:
             else:
                 content_media = ""
 
-            print("🧠 Running fact-check pipeline...")
+
             start_time = time.time()
             if((content+content_media)==""or (content+content_media)==" "):
                 return {}
             results = self.factcheck.check_text(content + content_media)
             elapsed = time.time() - start_time
-            print(f"✅ Completed in {elapsed:.2f}s")
 
             return results
 
         except Exception as e:
             import traceback
-            print("❌ Error during processing:", e)
+            print("Error during processing:", e)
             print(traceback.format_exc())
             return {"error": str(e)}
 
-# ---------- MAIN RUNNER ----------
-
-def main():
-    app = FactCheckApp()
-
-    print("\n🔍 OpenFactVerification (CLI Mode)")
-    print("Enter your text below (press ENTER twice to submit):\n")
-
-    lines = []
-    while True:
-        line = input()
-        if not line.strip():
-            break
-        lines.append(line)
-    user_text = "\n".join(lines)
-
-    results = app.process_input(input_text=user_text)
-
-    # Display summarized output
-    if "error" in results:
-        print("⚠️ Error:", results["error"])
-    else:
-        summary = results.get("summary", {})
-        factuality = summary.get("factuality", 0)
-        print("\n=== FACT-CHECK SUMMARY ===")
-        print(f"Factuality Score: {factuality:.1%}")
-        print(f"Claims Found: {summary.get('num_claims', 0)}")
-        print(f"Supported: {summary.get('num_supported_claims', 0)}")
-        print(f"Refuted: {summary.get('num_refuted_claims', 0)}")
-        print(f"Mixed Evidence: {summary.get('num_controversial_claims', 0)}")
-
-        print("\n=== CLAIM DETAILS ===")
-        for claim in results.get("claim_detail", []):
-            print(f"• {claim.get('claim', '')}")
-            print(f"  → Factuality: {claim.get('factuality', 0)}")
-            print(f"  → Relationship: {claim.get('relationship', 'N/A')}")
-            print()
-
-if __name__ == "__main__":
-    main()

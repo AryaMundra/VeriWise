@@ -1,7 +1,7 @@
 from factcheck.utils.logger import CustomLogger
 import nltk
-import json  # ✅ ADD THIS
-import re    # ✅ ADD THIS
+import json  
+import re    
 
 logger = CustomLogger(__name__).getlog()
 
@@ -35,11 +35,10 @@ class Decompose:
         Clean Gemini response to extract JSON.
         Handles markdown code blocks and extra text.
         """
-        # Remove markdown code blocks
+
 
         response = re.sub(r'```\s*', '', response)
         
-        # Try to find JSON object
         match = re.search(r'\{.*\}', response, re.DOTALL)
         if match:
             return match.group(0)
@@ -79,14 +78,14 @@ class Decompose:
                 try:
                     parsed = json.loads(cleaned_response)
                 except json.JSONDecodeError:
-                    # Fallback: try eval as last resort
+                
                     logger.warning(f"JSON decode failed, trying eval. Response: {response[:200]}")
                     parsed = eval(cleaned_response)
                 
                 claims = parsed.get("claims", [])
                 
                 if isinstance(claims, list) and len(claims) > 0:
-                    logger.info(f"✅ Successfully extracted {len(claims)} claims")
+                    logger.info(f"Successfully extracted {len(claims)} claims")
                     break
                     
             except Exception as e:
@@ -129,7 +128,7 @@ class Decompose:
                     v["start"] = cur_pos + 1
                     flag = False
                 elif v["start"] < cur_pos + 1 and v["end"] <= cur_pos:
-                    v["start"] = v["end"]  # temporarily ignore this span
+                    v["start"] = v["end"]  
                     flag = False
                 elif v["start"] > cur_pos + 1:
                     v["start"] = cur_pos + 1

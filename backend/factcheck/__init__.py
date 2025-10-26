@@ -82,15 +82,6 @@ class FactCheck:
         # Store API keys for multi-key verification
         self.api_keys = api_keys
         
-        # Log multi-key mode
-        if api_keys and len(api_keys) > 1:
-            logger.info(f"🔑 Multi-API-Key Mode: {len(api_keys)} keys detected")
-            logger.info(f"📊 Expected throughput: ~{len(api_keys) * 10} RPM")
-        elif api_keys and len(api_keys) == 1:
-            logger.info("🔑 Single-API-Key Mode (consider adding more for 5x speed!)")
-        else:
-            logger.info("🔑 Using default API configuration")
-        
         # Auto-adjust worker count based on number of keys
         if max_parallel_verifications is None:
             if api_keys and len(api_keys) > 1:
@@ -98,7 +89,7 @@ class FactCheck:
             else:
                 max_parallel_verifications = 4
         
-        logger.info(f"⚙️ Max parallel verifications: {max_parallel_verifications}")
+        logger.info(f"Max parallel verifications: {max_parallel_verifications}")
         
         # Initialize models for each pipeline step
         step_models = {
@@ -177,7 +168,7 @@ class FactCheck:
         
         # Initialize ClaimVerify with multi-key support
         if api_keys and len(api_keys) > 1:
-            logger.info("🚀 Initializing ClaimVerify with multi-key support...")
+            logger.info("Initializing ClaimVerify with multi-key support...")
             
             # Create client factory for multi-key mode
             def client_factory(api_key: str):
@@ -261,7 +252,7 @@ class FactCheck:
         )
                 
         # Steps 2-3: Run with rate-limited parallelism (single-key is sufficient here)
-        logger.info("Steps 2-3: Running with rate-limited parallelism...")
+        logger.info("Steps 2-3: Running ")
 
      
         from factcheck.utils.rate_limiter import RateLimitedExecutor
@@ -270,7 +261,6 @@ class FactCheck:
             max_requests_per_minute=8,
             max_workers=3
         )
-        logger.info("📌 Using RateLimitedExecutor for Steps 2-3 (8 RPM)")
 
         # Define tasks
         def task_restore():
@@ -289,7 +279,6 @@ class FactCheck:
         def task_queries():
             return self.query_generator.generate_query(claims=claims)
 
-        # Execute in parallel with rate limiting
         results = executor.map(
             lambda f: f(),
             [task_restore, task_checkworthy, task_queries]
@@ -299,7 +288,7 @@ class FactCheck:
         checkworthy_claims, claim2checkworthy = results[1]
         claim_queries_dict = results[2]
 
-        logger.info(f"✅ Steps 2-3 complete: {len(claims)} claims, {len(checkworthy_claims)} checkworthy")
+        logger.info(f"Steps 2-3 complete: {len(claims)} claims, {len(checkworthy_claims)} checkworthy")
 
 
 
@@ -349,8 +338,6 @@ class FactCheck:
         
         # Step 5: Verify claims against evidence
         logger.info("Step 5: Verifying claims against evidence...")
-        if self.api_keys and len(self.api_keys) > 1:
-            logger.info(f"🚀 Using {len(self.api_keys)} API keys for parallel verification!")
 
         # Convert to (text, url) tuples - handle both dicts and Evidence objects
         claim_evidence_tuples = {}
@@ -358,10 +345,10 @@ class FactCheck:
             tuples_list = []
             for ev in evidences:
                 if isinstance(ev, dict):
-                    # Retriever returns dicts
+
                     tuples_list.append((ev.get('text', ''), ev.get('url', '')))
                 else:
-                    # Evidence objects (shouldn't happen with Serper but handle anyway)
+    
                     tuples_list.append((ev.text, ev.url))
             claim_evidence_tuples[claim] = tuples_list
 
@@ -376,7 +363,6 @@ class FactCheck:
         
         step5_time = time.time()
         
-        # Log timing breakdown
         verification_time = step5_time - step4_time
         verification_rate = len(claim_verifications_dict) / verification_time if verification_time > 0 else 0
         
@@ -414,12 +400,10 @@ class FactCheck:
         
         for attr in self.attr_list:
             module = getattr(self, attr)
-            
-            # ✅ FIX: Handle multi-key mode where llm_client is a factory function
+
             if hasattr(module, 'llm_client') and hasattr(module.llm_client, 'usage'):
                 usage_dict[attr] = module.llm_client.usage
             else:
-                # Multi-key mode or special case - create empty usage
                 from factcheck.utils.data_class import TokenUsage
                 usage_dict[attr] = TokenUsage()
         
@@ -430,11 +414,9 @@ class FactCheck:
         """Reset token usage counters for all sub-modules."""
         for attr in self.attr_list:
             module = getattr(self, attr)
-            
-            # ✅ FIX: Only reset if llm_client has reset_usage method
+
             if hasattr(module, 'llm_client') and hasattr(module.llm_client, 'reset_usage'):
                 module.llm_client.reset_usage()
-            # In multi-key mode, usage tracking is handled by the executor
 
 
     def _merge_claim_details(

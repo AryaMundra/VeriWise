@@ -2,7 +2,6 @@ import torch
 from transformers import AutoImageProcessor, SiglipForImageClassification
 from PIL import Image
 
-# Load model and processor
 model_name = "prithivMLmods/Deepfake-Detect-Siglip2"
 model = SiglipForImageClassification.from_pretrained(model_name)
 processor = AutoImageProcessor.from_pretrained(model_name)
@@ -23,11 +22,10 @@ def detect_deepfake(image_path):
     Returns:
         Dictionary with detection results
     """
-    # Load and preprocess image
+
     image = Image.open(image_path).convert("RGB")
     inputs = processor(images=image, return_tensors="pt")
     
-    # Make prediction
     with torch.no_grad():
         outputs = model(**inputs)
         logits = outputs.logits
@@ -48,13 +46,3 @@ def detect_deepfake(image_path):
         "is_manipulated": predicted_class == "Fake"
     }
 
-# Example usage
-if __name__ == "__main__":
-    result = detect_deepfake("WhatsApp Image 2025-10-18 at 10.14.04_4fa00e96.jpg")
-    
-    print(f"Prediction: {result['prediction']}")
-    print(f"Confidence: {result['confidence']:.2%}")
-    print(f"Is Manipulated: {result['is_manipulated']}")
-    print(f"\nDetailed Scores:")
-    print(f"  Fake Score: {result['fake_score']:.4f}")
-    print(f"  Real Score: {result['real_score']:.4f}")

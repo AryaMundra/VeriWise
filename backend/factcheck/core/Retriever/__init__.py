@@ -1,8 +1,7 @@
-from .google_retriever import GoogleEvidenceRetriever
+
 from .serper_retriever import SerperEvidenceRetriever
 
 retriever_map = {
-    "google": GoogleEvidenceRetriever,
     "serper": SerperEvidenceRetriever,
 }
 
