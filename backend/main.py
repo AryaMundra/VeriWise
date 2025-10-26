@@ -1,172 +1,269 @@
-# backend/main.py
 import os
 import shutil
 import tempfile
-from fastapi import FastAPI, UploadFile, File, Form
+import traceback
+import asyncio
+from typing import Optional, Dict, Any
+from pathlib import Path
+
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException
+from fastapi.responses import JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from typing import Optional
-from dotenv import load_dotenv
-import threading, time
+from fastapi.staticfiles import StaticFiles
 
-# Load .env
-load_dotenv()
+from concurrent.futures import ThreadPoolExecutor
 
-from core import QueryGenerator, retriever, ClaimVerify
-from utils import multimodal
+# Try to import provided analysis modules
+try:
+    import biasness as bias_module
+except Exception:
+    bias_module = None
 
-# ✅ Import your deepfake detection modules
-from DeepFake.Deep_video import CompleteDeepfakeDetector
-from DeepFake.AI_Image import classify_image
-from DeepFake.Manipulated import detect_deepfake
+try:
+    import fact_verify as fact_module
+except Exception:
+    fact_module = None
 
+try:
+    import AI_Image as ai_image_module
+except Exception:
+    ai_image_module = None
 
-app = FastAPI(title="Multimodal FactCheck + Deepfake Backend")
+try:
+    import Manipulated as manipulated_module
+except Exception:
+    manipulated_module = None
 
+try:
+    import Deep_video as deep_video_module
+except Exception:
+    deep_video_module = None
+
+app = FastAPI(title="Multimodal Analysis Backend (Hackathon)", version="1.0")
+
+# CORS setup
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # use '*' for local testing
-    allow_credentials=True,
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# Serve frontend if built
+FRONTEND_PATH = Path("frontend/build")
+if FRONTEND_PATH.exists():
+    app.mount("/", StaticFiles(directory=str(FRONTEND_PATH), html=True), name="frontend")
 
-# ---------------- FACT-CHECK ROUTE ---------------- #
-class VerifyResponse(BaseModel):
-    verdict: str
-    score: float
-    justification: str
-    evidence: list
+# ThreadPool for blocking CPU-bound ops
+executor = ThreadPoolExecutor(max_workers=os.cpu_count() or 4)
 
 
-@app.post("/api/verify", response_model=VerifyResponse)
-async def verify_claim(
-    text_input: Optional[str] = Form(None),
+# -----------------------
+# Utility Helpers
+# -----------------------
+
+def save_uploadfile_to_temp(upload_file: UploadFile) -> str:
+    """Save UploadFile to a temporary file and return path."""
+    suffix = Path(upload_file.filename).suffix if upload_file.filename else ""
+    fd, tmp_path = tempfile.mkstemp(suffix=suffix)
+    os.close(fd)
+    with open(tmp_path, "wb") as f:
+        shutil.copyfileobj(upload_file.file, f)
+    return tmp_path
+
+
+async def run_in_thread(func, *args, **kwargs):
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(executor, lambda: func(*args, **kwargs))
+
+
+def safe_import_check():
+    missing = []
+    if bias_module is None:
+        missing.append("biasness.py")
+    if fact_module is None:
+        missing.append("fact_verify.py")
+    if ai_image_module is None:
+        missing.append("AI_Image.py")
+    if manipulated_module is None:
+        missing.append("Manipulated.py")
+    if deep_video_module is None:
+        missing.append("Deep_Video.py")
+    return missing
+
+
+# -----------------------
+# Analysis Wrappers
+# -----------------------
+
+def analyze_bias_text_sync(text: str) -> Dict[str, Any]:
+    if bias_module is None:
+        raise RuntimeError("biasness.py not available / failed to import")
+    label, score = bias_module.predict_bias(text)
+    return {"label": label, "score": float(score)}
+
+
+def run_factcheck_sync(input_text: Optional[str] = None, image_path: Optional[str] = None,
+                       video_path: Optional[str] = None, text_file: Optional[str] = None) -> Dict[str, Any]:
+    if fact_module is None:
+        raise RuntimeError("fact_verify.py not available / failed to import")
+    app_fc = fact_module.FactCheckApp()
+    results = app_fc.process_input(
+        input_text=input_text,
+        text_file=text_file,
+        audio_file=None,
+        image_file=image_path,
+        video_file=video_path
+    )
+    return results
+
+
+def classify_image_sync(image_path: str) -> Dict[str, Any]:
+    if ai_image_module is None:
+        raise RuntimeError("AI_Image.py not available / failed to import")
+    return ai_image_module.classify_image(image_path)
+
+
+def detect_manipulated_sync(image_path: str) -> Dict[str, Any]:
+    if manipulated_module is None:
+        raise RuntimeError("Manipulated.py not available / failed to import")
+    return manipulated_module.detect_deepfake(image_path)
+
+
+def analyze_video_sync(video_path: str) -> Dict[str, Any]:
+    if deep_video_module is None:
+        raise RuntimeError("Deep_Video.py not available / failed to import")
+    detector = deep_video_module.CompleteDeepfakeDetector()
+    results = detector.analyze_video(video_path, cleanup=True)
+    return results
+
+
+# -----------------------
+# API Endpoints
+# -----------------------
+
+@app.post("/api/analyze")
+async def analyze(
+    text: Optional[str] = Form(None),
+    image: Optional[UploadFile] = File(None),
     video: Optional[UploadFile] = File(None),
 ):
+    """
+    Main analysis endpoint.
+    Accepts multipart form:
+      - text: optional
+      - image: optional
+      - video: optional
+    At least one input must be provided.
+    """
+
+    missing = safe_import_check()
+    if missing:
+        return JSONResponse(status_code=500, content={"error": "Missing required analysis modules", "missing": missing})
+
+    if not text and image is None and video is None:
+        raise HTTPException(status_code=400, detail="At least one of text, image, or video must be provided.")
+
+    tmp_files = []
+    image_path = None
     video_path = None
-    if video:
-        tmp = tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(video.filename)[1])
-        with open(tmp.name, "wb") as f:
-            shutil.copyfileobj(video.file, f)
-        video_path = tmp.name
 
-    # 1️⃣ Extract multimodal data
-    multimodal_data = multimodal.multimodal_extract(video_path=video_path, text_input=text_input)
-    combined_text = (
-        (multimodal_data.get("text_input") or "") + "\n" + (multimodal_data.get("transcript") or "")
-    ).strip()
-
-    # 2️⃣ Generate factual search queries
-    queries = QueryGenerator.generate_queries(combined_text)
-    if not queries and multimodal_data.get("frames"):
-        queries = ["Fact-check this video context"]
-
-    # 3️⃣ Retrieve evidence using Serper
-    evidence_groups = retriever.get_evidence(queries, top_k=3)
-    flattened_evidence = [
-        {"query": q["query"], "snippet": r.get("snippet"), "url": r.get("url")}
-        for q in evidence_groups for r in q.get("results", [])
-    ]
-
-    # 4️⃣ Verify claim with Gemini
-    claim_text = text_input or combined_text or "No Claim Provided"
-    verification = ClaimVerify.gemini_verify_multimodal(
-        claim_text,
-        flattened_evidence,
-        frames=multimodal_data.get("frames", []),
-        transcript=multimodal_data.get("transcript", "")
-    )
-
-    return {
-        "verdict": verification.get("verdict", "NOT_ENOUGH_INFO"),
-        "score": float(verification.get("score", 0.0)),
-        "justification": verification.get("justification", ""),
-        "evidence": flattened_evidence,
-    }
-
-
-# ---------------- NEW DEEPFAKE DETECTION ROUTE ---------------- #
-class DeepfakeResponse(BaseModel):
-    type: str  # "image" or "video"
-    prediction: str
-    confidence: float
-    details: Optional[dict] = None
-
-
-# @app.post("/api/deepfake", response_model=DeepfakeResponse)
-
-
-def delayed_delete(path, delay=2):
-    """Delete a temporary file after a short delay."""
-    def _delete():
-        time.sleep(delay)
-        try:
-            if os.path.exists(path):
-                os.remove(path)
-                print(f"[Cleanup] Deleted temp file: {path}")
-        except Exception as e:
-            print(f"[Cleanup Error] Could not delete {path}: {e}")
-    threading.Thread(target=_delete, daemon=True).start()
-
-
-@app.post("/api/deepfake", response_model=DeepfakeResponse)
-async def detect_deepfake_api(
-    file: UploadFile = File(...),
-    media_type: str = Form(...),
-):
     try:
-        # Save uploaded file temporarily
-        suffix = os.path.splitext(file.filename)[1]
-        tmp = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
-        with open(tmp.name, "wb") as f:
-            shutil.copyfileobj(file.file, f)
-        file_path = tmp.name
+        if image:
+            image_path = save_uploadfile_to_temp(image)
+            tmp_files.append(image_path)
+        if video:
+            video_path = save_uploadfile_to_temp(video)
+            tmp_files.append(video_path)
 
-        # Run detection
-        if media_type.lower() == "video":
-            detector = CompleteDeepfakeDetector()
-            results = detector.analyze_video(file_path, cleanup=True)
-            verdict = results.get("overall_verdict", {}).get("verdict", "UNKNOWN")
-            risk = results.get("overall_verdict", {}).get("risk_level", "UNKNOWN")
+        results: Dict[str, Any] = {}
+        results["text"] = text
 
-            return {
-                "type": "video",
-                "prediction": verdict,
-                "confidence": 1.0 if risk == "HIGH" else 0.7 if risk == "MEDIUM" else 0.4,
-                "details": results,
-            }
+        # -----------------------
+        # Run modules in parallel
+        # -----------------------
 
-        elif media_type.lower() == "image":
-            ai_result = classify_image(file_path)
-            df_result = detect_deepfake(file_path)
+        if text and image_path:
+            tasks = [
+                run_in_thread(analyze_bias_text_sync, text),
+                run_in_thread(run_factcheck_sync, text, image_path),
+                run_in_thread(classify_image_sync, image_path),
+                run_in_thread(detect_manipulated_sync, image_path),
+            ]
+            bias_res, fact_res, ai_res, manip_res = await asyncio.gather(*tasks)
+            results.update({
+                "bias": bias_res,
+                "factcheck": fact_res,
+                "ai_image": ai_res,
+                "manipulated": manip_res
+            })
 
-            combined_prediction = (
-                "FAKE" if (ai_result["predicted_class"] == "Fake" or df_result["is_manipulated"]) else "REAL"
-            )
-            avg_conf = (ai_result["confidence"] + df_result["confidence"]) / 2
+        elif text and not image_path and not video_path:
+            tasks = [
+                run_in_thread(analyze_bias_text_sync, text),
+                run_in_thread(run_factcheck_sync, text, None),
+            ]
+            bias_res, fact_res = await asyncio.gather(*tasks)
+            results.update({
+                "bias": bias_res,
+                "factcheck": fact_res
+            })
 
-            return {
-                "type": "image",
-                "prediction": combined_prediction,
-                "confidence": float(avg_conf),
-                "details": {
-                    "AI_image_model": ai_result,
-                    "Manipulated_model": df_result,
-                },
-            }
+        elif image_path and not text and not video_path:
+            tasks = [
+                run_in_thread(run_factcheck_sync, None, image_path),
+                run_in_thread(classify_image_sync, image_path),
+                run_in_thread(detect_manipulated_sync, image_path),
+            ]
+            fact_res, ai_res, manip_res = await asyncio.gather(*tasks)
+            results.update({
+                "factcheck": fact_res,
+                "ai_image": ai_res,
+                "manipulated": manip_res
+            })
+
+        elif video_path:
+            video_res = await run_in_thread(analyze_video_sync, video_path)
+            try:
+                fact_res = await run_in_thread(run_factcheck_sync, None, None, video_path)
+            except Exception:
+                fact_res = None
+            results.update({
+                "video": video_res,
+                "factcheck": fact_res
+            })
 
         else:
-            return {"type": "unknown", "prediction": "Invalid media_type", "confidence": 0.0}
+            raise HTTPException(status_code=400, detail="Unsupported combination of inputs.")
+
+        return JSONResponse(status_code=200, content={"status": "ok", "results": results})
 
     except Exception as e:
-        return {
-            "type": media_type,
-            "prediction": "ERROR",
-            "confidence": 0.0,
-            "details": {"error": str(e)},
-        }
-    finally:
-        delayed_delete(tmp.name)  # safely delete after short delay
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=str(e))
 
+    finally:
+        for p in tmp_files:
+            try:
+                os.remove(p)
+            except Exception:
+                pass
+
+
+@app.get("/api/health")
+async def health():
+    missing = safe_import_check()
+    return {"status": "ok", "missing_modules": missing, "has_frontend": FRONTEND_PATH.exists()}
+
+
+@app.get("/api/download/")
+async def download_test(filepath: str):
+    if not os.path.exists(filepath):
+        raise HTTPException(status_code=404, detail="File not found")
+    return FileResponse(filepath)
+
+
+@app.on_event("startup")
+async def startup_event():
+    print("=== Multimodal FastAPI backend starting ===")
+    print("Ensure all required modules and keys are configured properly.")

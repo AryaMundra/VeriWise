@@ -99,7 +99,7 @@ class FactCheckApp:
             print("🔄 Processing input...")
 
             # Determine input type
-            content = None
+            content = ""
             modal = "text"
             input_path = None
 
@@ -129,11 +129,15 @@ class FactCheckApp:
                 content_media = modal_normalization(
                     modal=modal, input_data=input_path, gemini_key=api_key
                 )
+                if"No Text" in content_media:
+                    content_media=""
             else:
                 content_media = ""
 
             print("🧠 Running fact-check pipeline...")
             start_time = time.time()
+            if((content+content_media)==""or (content+content_media)==" "):
+                return {}
             results = self.factcheck.check_text(content + content_media)
             elapsed = time.time() - start_time
             print(f"✅ Completed in {elapsed:.2f}s")

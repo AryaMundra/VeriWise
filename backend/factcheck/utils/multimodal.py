@@ -83,7 +83,7 @@ def image2text(input_path: str, gemini_key: str) -> str:
         # Create model
         model = genai.GenerativeModel(model_name="gemini-2.5-flash")
         
-        prompt = "Please return the text mentioned in the image . If you find no text just return None ."
+        prompt = "Please return the text mentioned in the image . If you find no text just return your answer as (No Text) ."
         
         response = model.generate_content([prompt, image_file])
         

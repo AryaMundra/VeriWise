@@ -129,17 +129,45 @@ class FactCheck:
                 LLMClient(model=model_name, api_config=self.api_config)
             )
         
-        # Initialize sub-modules with their respective clients
+        # Create 3 separate clients for Steps 2-3 parallelism
+        gemini_key_1 = api_config.get("GEMINI_API_KEY")
+        gemini_key_2 = api_config.get("GEMINI_API_KEY_2")
+        gemini_key_3 = api_config.get("GEMINI_API_KEY_3")
+        
+        # Client 1: For decomposer (restore_claims)
+        decompose_client = LLMClient(
+            
+            api_config={"GEMINI_API_KEY": gemini_key_1},
+            
+        )
+        
+        # Client 2: For checkworthy
+        checkworthy_client = LLMClient(
+        
+            api_config={"GEMINI_API_KEY": gemini_key_2},
+           
+        )
+        
+        # Client 3: For query_generator
+        query_gen_client = LLMClient(
+            
+            api_config={"GEMINI_API_KEY": gemini_key_3},
+     
+        )
+        
+        # Initialize components with separate clients
         self.decomposer = Decompose(
-            llm_client=self.decompose_model, 
+            llm_client=decompose_client,
             prompt=self.prompt
         )
+        
         self.checkworthy = Checkworthy(
-            llm_client=self.checkworthy_model, 
+            llm_client=checkworthy_client,
             prompt=self.prompt
         )
+        
         self.query_generator = QueryGenerator(
-            llm_client=self.query_generator_model, 
+            llm_client=query_gen_client,
             prompt=self.prompt
         )
         self.evidence_crawler = retriever_mapper(retriever_name=retriever)(
