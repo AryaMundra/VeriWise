@@ -1,26 +1,33 @@
 "use client";
-import { UploadCloud, Lock, Server } from "lucide-react";
+import { ShieldCheck, Search, Video, Layers } from "lucide-react";
 
 const features = [
   {
-    name: "Push to deploy.",
+    name: "DeepFake Detection",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    icon: UploadCloud,
+      "Detect manipulated or AI-generated images and videos with cutting-edge deep learning models.",
+    icon: Video,
   },
   {
-    name: "SSL certificates.",
+    name: "Text Claim Verification",
     description:
-      "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.",
-    icon: Lock,
+      "Analyze textual statements and retrieve factual evidence from trusted online sources.",
+    icon: Search,
   },
   {
-    name: "Database backups.",
+    name: "Multimodal Analysis",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: Server,
+      "Combine insights from text, images, and videos to deliver comprehensive verification results.",
+    icon: Layers,
+  },
+  {
+    name: "Secure and Transparent",
+    description:
+      "All verifications are processed with privacy and integrity, ensuring your data stays protected.",
+    icon: ShieldCheck,
   },
 ];
+
 
 export default function Example() {
   return (
@@ -32,15 +39,15 @@ export default function Example() {
           <div className="lg:pt-4 lg:pr-8">
             <div className="lg:max-w-lg">
               <h2 className="text-base font-semibold text-indigo-600 dark:text-indigo-400">
-                Deploy faster
+                AI Powered Verification
               </h2>
               <p className="mt-2 text-4xl font-semibold tracking-tight text-zinc-900 dark:text-white sm:text-5xl">
-                A better workflow
+                Built for truth in the digital age
               </p>
               <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-300">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
-                impedit perferendis suscipit eaque, iste dolor cupiditate
-                blanditiis ratione.
+                VeriWise empowers users to authenticate digital content effortlessly 
+                from identifying DeepFakes to verifying online claims ensuring 
+                reliability in an era of misinformation.
               </p>
 
               <dl className="mt-10 max-w-xl space-y-8 text-zinc-700 dark:text-zinc-400 lg:max-w-none">
@@ -63,7 +70,7 @@ export default function Example() {
           {/* Right Image */}
           <img
             alt="Product screenshot"
-            src="https://tailwindcss.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
+            src="disp.png"
             width={2432}
             height={1442}
             className="w-3xl max-w-none rounded-xl 

@@ -8,7 +8,7 @@ const page = () => {
   <>
     <Navbar />
     <Hero />
-    <Companies />
+    <Companies id='features'/>
   </>
   )
 }
