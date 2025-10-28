@@ -109,7 +109,7 @@ class FactCheckApp:
             elif video_file:
                 input_path = video_file
                 modal = "video"
-            elif input_text:
+            if input_text:
                 content = input_text
             else:
                 raise ValueError("No input provided.")

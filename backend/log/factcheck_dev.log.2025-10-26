@@ -1,0 +1,888 @@
+[INFO]2025-10-26 21:13:21,532 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 21:13:21,533 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 21:13:21,533 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 21:13:21,533 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:13:21,533 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:13:21,533 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:13:21,534 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:13:21,538 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:13:21,538 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:13:21,538 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:13:21,538 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:13:21,538 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:13:21,539 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:13:21,539 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 21:13:21,539 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 21:13:21,539 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 21:13:21,688 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 21:13:21,688 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 21:13:21,689 multimodal.py:183: Processing modal: video, input: C:\Users\HP\AppData\Local\Temp\tmp2u9_3xva.MP4
+[INFO]2025-10-26 21:13:21,690 multimodal.py:120: Uploading video file: C:\Users\HP\AppData\Local\Temp\tmp2u9_3xva.MP4
+[INFO]2025-10-26 21:13:47,669 multimodal.py:125: Processing video... this may take a moment
+[INFO]2025-10-26 21:14:20,737 multimodal.py:219: Successfully processed modal: video
+[INFO]2025-10-26 21:14:20,747 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 21:14:20,748 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 21:14:20,748 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 21:14:20,749 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:14:20,749 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:14:20,752 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:14:20,753 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:14:20,754 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:14:20,754 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:14:20,755 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:14:20,755 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:14:20,756 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:14:20,757 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:14:20,758 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 21:14:20,758 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 21:14:20,759 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 21:14:20,760 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 21:14:20,760 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 21:14:20,762 __init__.py:226: === Starting Fact-Check Pipeline ===
+[INFO]2025-10-26 21:14:20,762 __init__.py:229: Step 1: Decomposing text into claims...
+[INFO]2025-10-26 21:14:42,140 Decompose.py:89: ✅ Successfully extracted 18 claims
+[INFO]2025-10-26 21:14:42,142 __init__.py:236: Steps 2-3: Running with rate-limited parallelism...
+[WARNING]2025-10-26 21:14:42,143 rate_limiter.py:384: ⚠️ Using legacy RateLimitedExecutor. Consider using MultiKeyRateLimitedExecutor for better performance.
+[INFO]2025-10-26 21:14:42,143 __init__.py:245: 📌 Using RateLimitedExecutor for Steps 2-3 (8 RPM)
+[ERROR]2025-10-26 21:14:43,585 rate_limiter.py:445: ❌ Task 3 failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
+Please retry in 15.853027813s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 15
+}
+]
+[ERROR]2025-10-26 21:16:28,409 rate_limiter.py:445: ❌ Task 1 failed: cannot access local variable 'response' where it is not associated with a value
+[INFO]2025-10-26 21:16:28,414 __init__.py:274: ✅ Steps 2-3 complete: 18 claims, 18 checkworthy
+[INFO]2025-10-26 21:16:28,472 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 21:16:28,472 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 21:16:28,474 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 21:16:28,475 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:16:28,476 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:16:28,477 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:16:28,478 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:16:28,478 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:16:28,479 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:16:28,479 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:16:28,482 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:16:28,483 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:16:28,483 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:16:28,484 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 21:16:28,485 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 21:16:28,485 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 21:16:28,488 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 21:16:28,488 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 21:16:28,490 multimodal.py:183: Processing modal: image, input: C:\Users\HP\AppData\Local\Temp\tmp9g2jhhtg.png
+[INFO]2025-10-26 21:16:28,491 multimodal.py:80: Uploading image file: C:\Users\HP\AppData\Local\Temp\tmp9g2jhhtg.png
+[INFO]2025-10-26 21:16:49,744 multimodal.py:219: Successfully processed modal: image
+[INFO]2025-10-26 21:16:49,751 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 21:16:49,752 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 21:16:49,752 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 21:16:49,752 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:16:49,753 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:16:49,754 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:16:49,755 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:16:49,757 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:16:49,758 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:16:49,758 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:16:49,759 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:16:49,759 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:16:49,759 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:16:49,759 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 21:16:49,760 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 21:16:49,761 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 21:16:49,762 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 21:16:49,762 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 21:16:49,763 __init__.py:226: === Starting Fact-Check Pipeline ===
+[INFO]2025-10-26 21:16:49,764 __init__.py:229: Step 1: Decomposing text into claims...
+[INFO]2025-10-26 21:16:59,968 Decompose.py:89: ✅ Successfully extracted 11 claims
+[INFO]2025-10-26 21:16:59,970 __init__.py:236: Steps 2-3: Running with rate-limited parallelism...
+[WARNING]2025-10-26 21:16:59,970 rate_limiter.py:384: ⚠️ Using legacy RateLimitedExecutor. Consider using MultiKeyRateLimitedExecutor for better performance.
+[INFO]2025-10-26 21:16:59,971 __init__.py:245: 📌 Using RateLimitedExecutor for Steps 2-3 (8 RPM)
+[ERROR]2025-10-26 21:17:01,511 rate_limiter.py:445: ❌ Task 3 failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
+Please retry in 57.965655992s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 57
+}
+]
+[ERROR]2025-10-26 21:17:18,093 Decompose.py:180: Parse LLM response error Restore claims not satisfied., response is: {
+  "AI_IMAGE predicted the class as 'Fake'.": "AI_IMAGE:\n{'predicted_class': 'Fake'",
+  "AI_IMAGE's confidence was 0.9252.": ", 'confidence': 0.9252",
+  "AI_IMAGE's 'Real' score was 0.0748.": ", 'all_scores': {'Real': 0.0748",
+  "AI_IMAGE's 'Fake' score was 0.9252.": ", 'Fake': 0.9252}}",
+  "MANIPULATED's prediction was 'Fake'.": "\n\nMANIPULATED:\n{'prediction': 'Fake'",
+  "MANIPULATED's confidence was 0.9999326467514038.": ", 'confidence': 0.9999326467514038",
+  "MANIPULATED's fake score was
+[ERROR]2025-10-26 21:17:18,094 Decompose.py:181: Prompt was: [[{'role': 'system', 'content': 'You are a helpful assistant designed to output JSON.'}, {'role': 'user', 'content': 'Task: Map each claim back to its corresponding text span in the original document.\n\nInstructions:\n1. For each claim, find the minimal continuous span in the original text that contains the information\n2. Return a JSON dict where keys are claims and values are the corresponding text spans\n3. Ensure the spans can be concatenated to form the full original document\n4. Copy spans exactly from the original text\n\nExample:\nText: Mary is a five-year old girl, she likes playing piano and she doesn\'t like cookies.\nClaims: ["Mary is a five-year old girl.", "Mary likes playing piano.", "Mary doesn\'t like cookies."]\n\nOutput:\n{\n  "Mary is a five-year old girl.": "Mary is a five-year old girl,",\n  "Mary likes playing piano.": " she likes playing piano",\n  "Mary doesn\'t like cookies.": " and she doesn\'t like cookies."\n}\n\nNow map these claims:\nText: AI_IMAGE:\n{\'predicted_class\': \'Fake\', \'confidence\': 0.9252, \'all_scores\': {\'Real\': 0.0748, \'Fake\': 0.9252}}\n\nMANIPULATED:\n{\'prediction\': \'Fake\', \'confidence\': 0.9999326467514038, \'fake_score\': 0.9999326467514038, \'real_score\': 6.735918577760458e-05, \'is_manipulated\': True}\n\nFACTCHECK_RAW:\n{\'error\': "unsupported operand type(s) for +: \'NoneType\' and \'str\'"}\nClaims: ["AI_IMAGE predicted the class as \'Fake\'.", "AI_IMAGE\'s confidence was 0.9252.", "AI_IMAGE\'s \'Real\' score was 0.0748.", "AI_IMAGE\'s \'Fake\' score was 0.9252.", "MANIPULATED\'s prediction was \'Fake\'.", "MANIPULATED\'s confidence was 0.9999326467514038.", "MANIPULATED\'s fake score was 0.9999326467514038.", "MANIPULATED\'s real score was 6.735918577760458e-05.", \'MANIPULATED indicated the content is manipulated.\', \'FACTCHECK_RAW reported an error.\', \'The FACTCHECK_RAW error was "unsupported operand type(s) for +: \\\'NoneType\\\' and \\\'str\\\'".\']\nOutput:'}]]
+[INFO]2025-10-26 21:17:18,104 __init__.py:274: ✅ Steps 2-3 complete: 11 claims, 11 checkworthy
+[INFO]2025-10-26 21:23:07,058 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 21:23:07,059 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 21:23:07,061 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 21:23:07,061 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:23:07,062 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:23:07,062 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:23:07,063 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:23:07,063 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:23:07,064 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:23:07,065 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:23:07,065 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:23:07,066 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:23:07,067 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:23:07,068 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 21:23:07,069 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 21:23:07,069 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 21:23:07,071 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 21:23:07,072 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 21:23:07,073 multimodal.py:183: Processing modal: image, input: C:\Users\HP\AppData\Local\Temp\tmpgawvlj5q.png
+[INFO]2025-10-26 21:23:07,074 multimodal.py:80: Uploading image file: C:\Users\HP\AppData\Local\Temp\tmpgawvlj5q.png
+[ERROR]2025-10-26 21:23:08,004 multimodal.py:96: Error in image2text: Unable to find the server at generativelanguage.googleapis.com
+[ERROR]2025-10-26 21:23:08,005 multimodal.py:223: Error in modal_normalization: Unable to find the server at generativelanguage.googleapis.com
+[INFO]2025-10-26 21:23:08,026 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 21:23:08,027 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 21:23:08,027 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 21:23:08,027 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:23:08,028 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:23:08,028 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:23:08,028 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:23:08,029 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:23:08,029 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:23:08,030 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:23:08,030 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:23:08,030 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:23:08,031 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:23:08,031 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 21:23:08,031 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 21:23:08,032 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 21:23:08,032 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 21:23:08,034 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 21:23:08,035 __init__.py:226: === Starting Fact-Check Pipeline ===
+[INFO]2025-10-26 21:23:08,036 __init__.py:229: Step 1: Decomposing text into claims...
+[INFO]2025-10-26 21:27:01,731 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 21:27:01,734 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 21:27:01,735 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 21:27:01,735 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:27:01,736 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:27:01,737 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:27:01,740 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:27:01,741 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:27:01,741 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:27:01,742 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:27:01,744 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:27:01,746 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:27:01,747 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:27:01,748 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 21:27:01,749 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 21:27:01,750 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 21:27:02,108 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 21:27:02,109 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 21:27:02,113 multimodal.py:183: Processing modal: image, input: C:\Users\HP\AppData\Local\Temp\tmp4tuxkz_3.png
+[INFO]2025-10-26 21:27:02,114 multimodal.py:80: Uploading image file: C:\Users\HP\AppData\Local\Temp\tmp4tuxkz_3.png
+[INFO]2025-10-26 21:27:27,018 multimodal.py:219: Successfully processed modal: image
+[INFO]2025-10-26 21:27:27,019 __init__.py:226: === Starting Fact-Check Pipeline ===
+[INFO]2025-10-26 21:27:27,020 __init__.py:229: Step 1: Decomposing text into claims...
+[WARNING]2025-10-26 21:27:29,169 Decompose.py:99: LLM did not output claims correctly, falling back to sentence splitting
+[INFO]2025-10-26 21:27:29,207 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 21:27:29,207 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 21:27:29,208 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 21:27:29,209 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:27:29,209 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:27:29,212 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:27:29,213 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:27:29,214 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:27:29,214 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:27:29,215 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:27:29,215 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:27:29,216 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:27:29,217 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:27:29,218 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 21:27:29,218 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 21:27:29,219 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 21:27:29,220 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 21:27:29,220 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 21:27:29,222 __init__.py:226: === Starting Fact-Check Pipeline ===
+[INFO]2025-10-26 21:27:29,222 __init__.py:229: Step 1: Decomposing text into claims...
+[INFO]2025-10-26 21:27:44,126 Decompose.py:89: ✅ Successfully extracted 15 claims
+[INFO]2025-10-26 21:27:44,127 __init__.py:236: Steps 2-3: Running with rate-limited parallelism...
+[WARNING]2025-10-26 21:27:44,129 rate_limiter.py:384: ⚠️ Using legacy RateLimitedExecutor. Consider using MultiKeyRateLimitedExecutor for better performance.
+[INFO]2025-10-26 21:27:44,130 __init__.py:245: 📌 Using RateLimitedExecutor for Steps 2-3 (8 RPM)
+[ERROR]2025-10-26 21:27:45,671 rate_limiter.py:445: ❌ Task 3 failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
+Please retry in 13.805193578s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 13
+}
+]
+[ERROR]2025-10-26 21:28:26,182 Decompose.py:180: Parse LLM response error Restore claims not satisfied., response is: {
+  "AI_IMAGE predicted the class 'Fake'.": "AI_IMAGE:\n{'predicted_class': 'Fake',",
+  "AI_IMAGE's confidence for 'Fake' was 0.9252.": " 'confidence': 0.9252,",
+  "AI_IMAGE's 'Real' score was 0.0748.": " 'all_scores': {'Real': 0.0748, 'Fake': 0.9252}}",
+  "MANIPULATED's prediction is 'Fake'.": "\n\nMANIPULATED:\n{'prediction': 'Fake',",
+  "MANIPULATED's confidence is 0.9999326467514038.": " 'confidence': 0.9999326467514038,",
+  "MANIPULATED's fake score is 0.9999326467514038.": " 'fake_score': 
+[ERROR]2025-10-26 21:28:26,183 Decompose.py:181: Prompt was: [[{'role': 'system', 'content': 'You are a helpful assistant designed to output JSON.'}, {'role': 'user', 'content': 'Task: Map each claim back to its corresponding text span in the original document.\n\nInstructions:\n1. For each claim, find the minimal continuous span in the original text that contains the information\n2. Return a JSON dict where keys are claims and values are the corresponding text spans\n3. Ensure the spans can be concatenated to form the full original document\n4. Copy spans exactly from the original text\n\nExample:\nText: Mary is a five-year old girl, she likes playing piano and she doesn\'t like cookies.\nClaims: ["Mary is a five-year old girl.", "Mary likes playing piano.", "Mary doesn\'t like cookies."]\n\nOutput:\n{\n  "Mary is a five-year old girl.": "Mary is a five-year old girl,",\n  "Mary likes playing piano.": " she likes playing piano",\n  "Mary doesn\'t like cookies.": " and she doesn\'t like cookies."\n}\n\nNow map these claims:\nText: AI_IMAGE:\n{\'predicted_class\': \'Fake\', \'confidence\': 0.9252, \'all_scores\': {\'Real\': 0.0748, \'Fake\': 0.9252}}\n\nMANIPULATED:\n{\'prediction\': \'Fake\', \'confidence\': 0.9999326467514038, \'fake_score\': 0.9999326467514038, \'real_score\': 6.735918577760458e-05, \'is_manipulated\': True}\n\nFACTCHECK_RAW:\n{\'error\': "\\n**********************************************************************\\n  Resource \\x1b[93mpunkt_tab\\x1b[0m not found.\\n  Please use the NLTK Downloader to obtain the resource:\\n\\n  \\x1b[31m>>> import nltk\\n  >>> nltk.download(\'punkt_tab\')\\n  \\x1b[0m\\n  For more information see: https://www.nltk.org/data.html\\n\\n  Attempted to load \\x1b[93mtokenizers/punkt_tab/english/\\x1b[0m\\n\\n  Searched in:\\n    - \'C:\\\\\\\\Users\\\\\\\\HP/nltk_data\'\\n    - \'C:\\\\\\\\Python313\\\\\\\\nltk_data\'\\n    - \'C:\\\\\\\\Python313\\\\\\\\share\\\\\\\\nltk_data\'\\n    - \'C:\\\\\\\\Python313\\\\\\\\lib\\\\\\\\nltk_data\'\\n    - \'C:\\\\\\\\Users\\\\\\\\HP\\\\\\\\AppData\\\\\\\\Roaming\\\\\\\\nltk_data\'\\n    - \'C:\\\\\\\\nltk_data\'\\n    - \'D:\\\\\\\\nltk_data\'\\n    - \'E:\\\\\\\\nltk_data\'\\n**********************************************************************\\n"}\nClaims: ["AI_IMAGE predicted the class \'Fake\'.", "AI_IMAGE\'s confidence for \'Fake\' was 0.9252.", "AI_IMAGE\'s \'Real\' score was 0.0748.", "MANIPULATED\'s prediction is \'Fake\'.", "MANIPULATED\'s confidence is 0.9999326467514038.", "MANIPULATED\'s fake score is 0.9999326467514038.", "MANIPULATED\'s real score is 6.735918577760458e-05.", \'MANIPULATED indicates the item is manipulated.\', \'FACTCHECK_RAW reported an error.\', \'The error states `punkt_tab` resource was not found.\', \'The system attempted to load `tokenizers/punkt_tab/english/`.\', \'NLTK Downloader should be used to obtain the resource.\', "The NLTK download command is `nltk.download(\'punkt_tab\')`.", \'More information is available at `https://www.nltk.org/data.html`.\', \'The error lists several searched paths for the resource.\']\nOutput:'}]]
+[INFO]2025-10-26 21:28:26,189 __init__.py:274: ✅ Steps 2-3 complete: 15 claims, 15 checkworthy
+[INFO]2025-10-26 21:39:20,117 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 21:39:20,118 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 21:39:20,119 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 21:39:20,120 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:39:20,120 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:39:20,121 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:39:20,121 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:39:20,121 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:39:20,122 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:39:20,123 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:39:20,123 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:39:20,123 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:39:20,123 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:39:20,124 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 21:39:20,124 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 21:39:20,124 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 21:39:20,347 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 21:39:20,347 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 21:39:20,348 multimodal.py:183: Processing modal: image, input: C:\Users\HP\AppData\Local\Temp\tmpno16irba.png
+[INFO]2025-10-26 21:39:20,349 multimodal.py:80: Uploading image file: C:\Users\HP\AppData\Local\Temp\tmpno16irba.png
+[INFO]2025-10-26 21:39:44,503 multimodal.py:219: Successfully processed modal: image
+[INFO]2025-10-26 21:39:44,504 __init__.py:226: === Starting Fact-Check Pipeline ===
+[INFO]2025-10-26 21:39:44,504 __init__.py:229: Step 1: Decomposing text into claims...
+[WARNING]2025-10-26 21:39:46,559 Decompose.py:99: LLM did not output claims correctly, falling back to sentence splitting
+[INFO]2025-10-26 21:43:12,482 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 21:43:12,484 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 21:43:12,485 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 21:43:12,487 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:43:12,490 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:43:12,491 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:43:12,492 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:43:12,493 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:43:12,495 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:43:12,497 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:43:12,498 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:43:12,498 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:43:12,500 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:43:12,501 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 21:43:12,501 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 21:43:12,503 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 21:43:12,661 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 21:43:12,662 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 21:43:12,663 multimodal.py:183: Processing modal: image, input: C:\Users\HP\AppData\Local\Temp\tmp9d8grsm2.png
+[INFO]2025-10-26 21:43:12,663 multimodal.py:80: Uploading image file: C:\Users\HP\AppData\Local\Temp\tmp9d8grsm2.png
+[INFO]2025-10-26 21:43:34,390 multimodal.py:219: Successfully processed modal: image
+[INFO]2025-10-26 21:44:15,194 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 21:44:15,195 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 21:44:15,196 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 21:44:15,196 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:44:15,197 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:44:15,198 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:44:15,202 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:44:15,205 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:44:15,206 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:44:15,207 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:44:15,207 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:44:15,208 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:44:15,208 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:44:15,209 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 21:44:15,211 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 21:44:15,213 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 21:44:15,215 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 21:44:15,218 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 21:44:15,220 multimodal.py:183: Processing modal: image, input: C:\Users\HP\AppData\Local\Temp\tmpym2ac693.jpg
+[INFO]2025-10-26 21:44:15,221 multimodal.py:80: Uploading image file: C:\Users\HP\AppData\Local\Temp\tmpym2ac693.jpg
+[INFO]2025-10-26 21:44:37,984 multimodal.py:219: Successfully processed modal: image
+[INFO]2025-10-26 21:44:37,985 __init__.py:226: === Starting Fact-Check Pipeline ===
+[INFO]2025-10-26 21:44:37,985 __init__.py:229: Step 1: Decomposing text into claims...
+[INFO]2025-10-26 21:45:05,118 Decompose.py:89: ✅ Successfully extracted 31 claims
+[INFO]2025-10-26 21:45:05,118 __init__.py:236: Steps 2-3: Running with rate-limited parallelism...
+[WARNING]2025-10-26 21:45:05,119 rate_limiter.py:384: ⚠️ Using legacy RateLimitedExecutor. Consider using MultiKeyRateLimitedExecutor for better performance.
+[INFO]2025-10-26 21:45:05,120 __init__.py:245: 📌 Using RateLimitedExecutor for Steps 2-3 (8 RPM)
+[ERROR]2025-10-26 21:45:07,222 rate_limiter.py:445: ❌ Task 3 failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
+Please retry in 52.844288043s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 52
+}
+]
+[ERROR]2025-10-26 21:46:51,835 rate_limiter.py:445: ❌ Task 1 failed: cannot access local variable 'response' where it is not associated with a value
+[INFO]2025-10-26 21:46:51,838 __init__.py:274: ✅ Steps 2-3 complete: 31 claims, 31 checkworthy
+[INFO]2025-10-26 21:56:48,331 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 21:56:48,333 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 21:56:48,334 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 21:56:48,335 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:56:48,336 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:56:48,336 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:56:48,339 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:56:48,340 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:56:48,340 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:56:48,341 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:56:48,342 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:56:48,344 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 21:56:48,345 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 21:56:48,345 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 21:56:48,346 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 21:56:48,347 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 21:56:48,695 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 21:56:48,696 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 21:56:48,698 multimodal.py:183: Processing modal: image, input: C:\Users\HP\AppData\Local\Temp\tmps0u1akhh.jpg
+[INFO]2025-10-26 21:56:48,698 multimodal.py:80: Uploading image file: C:\Users\HP\AppData\Local\Temp\tmps0u1akhh.jpg
+[INFO]2025-10-26 21:57:10,747 multimodal.py:219: Successfully processed modal: image
+[INFO]2025-10-26 21:57:10,748 __init__.py:226: === Starting Fact-Check Pipeline ===
+[INFO]2025-10-26 21:57:10,748 __init__.py:229: Step 1: Decomposing text into claims...
+[INFO]2025-10-26 21:57:35,200 Decompose.py:89: ✅ Successfully extracted 32 claims
+[INFO]2025-10-26 21:57:35,202 __init__.py:236: Steps 2-3: Running sequentially...
+[INFO]2025-10-26 21:57:35,203 __init__.py:239:   → Step 2a: Restoring claim origins...
+[ERROR]2025-10-26 21:59:24,152 Decompose.py:180: Parse LLM response error Restore claims not satisfied., response is: {
+  "The cabinet is Antasena.": "KABINET\nANTASENA",
+  "Dimas Aryo is Angkatan Muda.": "ANGKATAN MUDA\nDIMAS\nARYO",
+  "Wienderika is Angkatan Muda.": "WIENDERIKA",
+  "Durrotul Amjad is Angkatan Muda.": "DURROTUL AMJAD",
+  "Nayla is Sekretaris Divisi.": "SEKRETARIS DIVISI\nKEPALA DIVISI\nNAYLA",
+  "Nazwa Noviyanti is Kepala Divisi.": "NAZWA NOVIYANTI",
+  "Patra Ananda is Kepala Divisi.": "PATRA\nANANDA",
+  "Fadhil is a Staf member.": "STAF\nFADHIL",
+  "Hafidz is a Staf member.": "HAFIDZ",
+  "Ren
+[ERROR]2025-10-26 21:59:24,153 Decompose.py:181: Prompt was: [[{'role': 'system', 'content': 'You are a helpful assistant designed to output JSON.'}, {'role': 'user', 'content': 'Task: Map each claim back to its corresponding text span in the original document.\n\nInstructions:\n1. For each claim, find the minimal continuous span in the original text that contains the information\n2. Return a JSON dict where keys are claims and values are the corresponding text spans\n3. Ensure the spans can be concatenated to form the full original document\n4. Copy spans exactly from the original text\n\nExample:\nText: Mary is a five-year old girl, she likes playing piano and she doesn\'t like cookies.\nClaims: ["Mary is a five-year old girl.", "Mary likes playing piano.", "Mary doesn\'t like cookies."]\n\nOutput:\n{\n  "Mary is a five-year old girl.": "Mary is a five-year old girl,",\n  "Mary likes playing piano.": " she likes playing piano",\n  "Mary doesn\'t like cookies.": " and she doesn\'t like cookies."\n}\n\nNow map these claims:\nText: Here is the text mentioned in the image:\n\nKABINET\nANTASENA\nANGKATAN MUDA\nDIMAS\nARYO\nWIENDERIKA\nDURROTUL AMJAD\nSEKRETARIS DIVISI\nKEPALA DIVISI\nNAYLA\nNAZWA NOVIYANTI\nPATRA\nANANDA\nSTAF\nFADHIL\nHAFIDZ\nRENCIA\nANASTA SAFARI\nSTAF\nDIVISI\nADVOKASI\nMerupakan divisi yang bertujuan untuk mengupayakan solusi bagi suatu hal, melakukan penegakan dari peraturan, serta menjadi ruang aspirasi dan ide bagi mahasiswa Ilmu Komunikasi yang berfokus terhadap 3 aspek: Finansial, Akademik dan Fasilitas.\n\nTugas Pokok dan Fungsi: Memperoleh segala bentuk informasi dan aspirasi mahasiswa Ilmu Komunikasi mengenai Finansial, Akademis dan Fasilitas agar bisa disampaikan ke program studi Ilmu Komunikasi.\nGIO\nARTHA IBRAHIM\nSTAF\n\n@himaik_unikom\nhimaik.unikom\nHIMAIK UNIKOM OFFICIAL\n\nHIMPUNAN MAHASISWA\nILMU KOMUNIKASI\n2024-2025\nKABINET\nANTASENA\nCOMM.\nSCIENCE\nDEPARTMENT\nClaims: [\'The cabinet is Antasena.\', \'Dimas Aryo is Angkatan Muda.\', \'Wienderika is Angkatan Muda.\', \'Durrotul Amjad is Angkatan Muda.\', \'Nayla is Sekretaris Divisi.\', \'Nazwa Noviyanti is Kepala Divisi.\', \'Patra Ananda is Kepala Divisi.\', \'Fadhil is a Staf member.\', \'Hafidz is a Staf member.\', \'Rencia is a Staf member.\', \'Anasta Safari is a Staf member.\', \'There is an Advokasi Division.\', \'Advokasi Division seeks solutions.\', \'Advokasi Division enforces regulations.\', \'Advokasi Division is an aspiration space.\', \'Advokasi Division is an idea space.\', \'Advokasi Division serves Ilmu Komunikasi students.\', \'Advokasi Division focuses on three aspects.\', \'The aspects are Finansial, Akademik, Fasilitas.\', \'Advokasi Division gathers information.\', \'Advokasi Division gathers student aspirations.\', \'Information concerns Finansial aspects.\', \'Information concerns Akademis aspects.\', \'Information concerns Fasilitas aspects.\', \'Information is for Ilmu Komunikasi study program.\', \'Gio Artha Ibrahim is a Staf member.\', \'@himaik_unikom is an official account.\', \'himaik.unikom is an official account.\', \'HIMAIK UNIKOM OFFICIAL is an identity.\', \'This is Himpunan Mahasiswa Ilmu Komunikasi.\', \'The period is 2024-2025.\', \'Kabinet Antasena is for Comm. Science Department.\']\nOutput:'}]]
+[INFO]2025-10-26 21:59:24,162 __init__.py:245:   ✅ Restored 32 claim origins
+[INFO]2025-10-26 21:59:24,163 __init__.py:248:   → Step 2b: Identifying checkworthy claims...
+[INFO]2025-10-26 21:59:56,714 __init__.py:253:   ✅ Found 32 checkworthy claims (out of 32)
+[INFO]2025-10-26 21:59:56,715 __init__.py:256:   → Step 3: Generating search queries...
+[INFO]2025-10-26 22:02:24,308 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 22:02:24,309 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 22:02:24,311 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 22:02:24,312 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:02:24,313 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:02:24,314 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:02:24,315 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:02:24,316 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:02:24,316 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:02:24,317 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:02:24,318 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:02:24,319 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:02:24,320 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:02:24,321 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 22:02:24,322 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 22:02:24,323 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 22:02:24,324 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 22:02:24,325 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 22:02:24,328 multimodal.py:183: Processing modal: image, input: C:\Users\HP\AppData\Local\Temp\tmp37myywjy.png
+[INFO]2025-10-26 22:02:24,330 multimodal.py:80: Uploading image file: C:\Users\HP\AppData\Local\Temp\tmp37myywjy.png
+[INFO]2025-10-26 22:02:40,967 multimodal.py:219: Successfully processed modal: image
+[INFO]2025-10-26 22:02:58,713 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 22:02:58,715 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 22:02:58,716 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 22:02:58,717 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:02:58,718 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:02:58,724 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:02:58,726 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:02:58,727 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:02:58,728 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:02:58,728 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:02:58,728 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:02:58,729 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:02:58,729 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:02:58,729 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 22:02:58,730 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 22:02:58,730 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 22:02:58,730 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 22:02:58,731 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 22:02:58,734 multimodal.py:183: Processing modal: image, input: C:\Users\HP\AppData\Local\Temp\tmpp1s6of5j.jpg
+[INFO]2025-10-26 22:02:58,735 multimodal.py:80: Uploading image file: C:\Users\HP\AppData\Local\Temp\tmpp1s6of5j.jpg
+[INFO]2025-10-26 22:03:19,071 multimodal.py:219: Successfully processed modal: image
+[INFO]2025-10-26 22:03:19,072 __init__.py:226: === Starting Fact-Check Pipeline ===
+[INFO]2025-10-26 22:03:19,072 __init__.py:229: Step 1: Decomposing text into claims...
+[INFO]2025-10-26 22:03:54,495 Decompose.py:89: ✅ Successfully extracted 30 claims
+[INFO]2025-10-26 22:03:54,496 __init__.py:236: Steps 2-3: Running sequentially...
+[INFO]2025-10-26 22:03:54,497 __init__.py:239:   → Step 2a: Restoring claim origins...
+[INFO]2025-10-26 22:21:46,768 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 22:21:46,770 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 22:21:46,770 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 22:21:46,771 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:21:46,772 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:21:46,773 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:21:46,773 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:21:46,774 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:21:46,774 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:21:46,777 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:21:46,778 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:21:46,778 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:21:46,779 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:21:46,779 __init__.py:152: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 22:21:46,782 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 22:21:46,783 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 22:21:47,169 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 22:21:47,170 __init__.py:194: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 22:21:47,170 multimodal.py:183: Processing modal: image, input: C:\Users\HP\AppData\Local\Temp\tmp66sg6k1p.png
+[INFO]2025-10-26 22:21:47,171 multimodal.py:80: Uploading image file: C:\Users\HP\AppData\Local\Temp\tmp66sg6k1p.png
+[INFO]2025-10-26 22:22:09,269 multimodal.py:219: Successfully processed modal: image
+[INFO]2025-10-26 22:23:13,624 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 22:23:13,627 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 22:23:13,628 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 22:23:13,628 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:23:13,628 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:23:13,629 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:23:13,629 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:23:13,629 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:23:13,630 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:23:13,630 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:23:13,631 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:23:13,631 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:23:13,632 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:23:13,633 __init__.py:180: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 22:23:13,633 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 22:23:13,633 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 22:23:13,814 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 22:23:13,814 __init__.py:222: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 22:23:13,815 multimodal.py:183: Processing modal: image, input: C:\Users\HP\AppData\Local\Temp\tmpwswltgkv.jpg
+[INFO]2025-10-26 22:23:13,816 multimodal.py:80: Uploading image file: C:\Users\HP\AppData\Local\Temp\tmpwswltgkv.jpg
+[INFO]2025-10-26 22:23:31,990 multimodal.py:219: Successfully processed modal: image
+[INFO]2025-10-26 22:23:31,991 __init__.py:254: === Starting Fact-Check Pipeline ===
+[INFO]2025-10-26 22:23:31,991 __init__.py:257: Step 1: Decomposing text into claims...
+[INFO]2025-10-26 22:23:53,919 Decompose.py:89: ✅ Successfully extracted 35 claims
+[INFO]2025-10-26 22:23:53,920 __init__.py:264: Steps 2-3: Running with rate-limited parallelism...
+[WARNING]2025-10-26 22:23:53,921 rate_limiter.py:384: ⚠️ Using legacy RateLimitedExecutor. Consider using MultiKeyRateLimitedExecutor for better performance.
+[INFO]2025-10-26 22:23:53,922 __init__.py:273: 📌 Using RateLimitedExecutor for Steps 2-3 (8 RPM)
+[ERROR]2025-10-26 22:23:55,450 rate_limiter.py:445: ❌ Task 3 failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
+Please retry in 4.081707358s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 4
+}
+]
+[ERROR]2025-10-26 22:25:21,249 Decompose.py:180: Parse LLM response error Restore claims not satisfied., response is: {
+  "The cabinet is named KABINET ANTASENA.": "KABINET\nANTASENA",
+  "Dimas Aryo is Angkatan Muda.": "\nDIMAS\nARYO\nANGKATAN MUDA",
+  "Wienderika Durrotul Amjad is Sekretaris Divisi.": "\nWIENDERIKA\nDURROTUL AMJAD\nSEKRETARIS DIVISI",
+  "Nayla Nazwa Noviyanti is Angkatan Muda.": "\nNAYLA\nNAZWA NOVIYANTI\nANGKATAN MUDA",
+  "Patra Ananda is a Staf member.": "\nPATRA\nANANDA\nSTAF",
+  "Fadhil Hafidz is a Staf member.": "\nFADHIL\nHAFIDZ\nRENCIA\nANASTA SAFARI\nSTAF",
+  "Rencia Anasta Safari is a
+[ERROR]2025-10-26 22:25:21,251 Decompose.py:181: Prompt was: [[{'role': 'system', 'content': 'You are a helpful assistant designed to output JSON.'}, {'role': 'user', 'content': 'Task: Map each claim back to its corresponding text span in the original document.\n\nInstructions:\n1. For each claim, find the minimal continuous span in the original text that contains the information\n2. Return a JSON dict where keys are claims and values are the corresponding text spans\n3. Ensure the spans can be concatenated to form the full original document\n4. Copy spans exactly from the original text\n\nExample:\nText: Mary is a five-year old girl, she likes playing piano and she doesn\'t like cookies.\nClaims: ["Mary is a five-year old girl.", "Mary likes playing piano.", "Mary doesn\'t like cookies."]\n\nOutput:\n{\n  "Mary is a five-year old girl.": "Mary is a five-year old girl,",\n  "Mary likes playing piano.": " she likes playing piano",\n  "Mary doesn\'t like cookies.": " and she doesn\'t like cookies."\n}\n\nNow map these claims:\nText: KABINET\nANTASENA\nDIMAS\nARYO\nANGKATAN MUDA\nWIENDERIKA\nDURROTUL AMJAD\nSEKRETARIS DIVISI\nNAYLA\nNAZWA NOVIYANTI\nANGKATAN MUDA\nPATRA\nANANDA\nSTAF\nFADHIL\nHAFIDZ\nRENCIA\nANASTA SAFARI\nSTAF\nDIVISI\nADVOKASI\nGIO\nARTHA IBRAHIM\nSTAF\nMerupakan divisi yang bertujuan untuk mengupayakan solusi bagi suatu hal yang terjadi melalui penegakan dan penyelesaian masalah, serta menjadi ruang aspirasi dan ide bagi mahasiswa ilmu komunikasi yang berfokus terhadap 3 aspek Finansial, Akademik dan Fasilitas.\nTugas Pokok dan Fungsi : Memperoleh segala bentuk informasi dan aspirasi mahasiswa Ilmu Komunikasi mengenai Finansial, Akademis dan fasilitas agar bisa disampaikan ke program studi Ilmu Komunikasi.\nhimaik_unikom\nhimaik.unikom\nHIMAIK UNIKOM OFFICIAL\nHIMPUNAN MAHASISWA\nILMU KOMUNIKASI\n2024-2025\nKABINET\nANTASENA\nCOMM.\nSCIENCE\nDEPARTMENT\nClaims: [\'The cabinet is named KABINET ANTASENA.\', \'Dimas Aryo is Angkatan Muda.\', \'Wienderika Durrotul Amjad is Sekretaris Divisi.\', \'Nayla Nazwa Noviyanti is Angkatan Muda.\', \'Patra Ananda is a Staf member.\', \'Fadhil Hafidz is a Staf member.\', \'Rencia Anasta Safari is a Staf member.\', \'There is a Divisi Advokasi.\', \'Gio Artha Ibrahim is a Staf member of Divisi Advokasi.\', \'The division aims to find solutions.\', \'The division resolves problems.\', \'The division enforces solutions.\', \'The division is an aspiration space for students.\', \'The division is an idea space for students.\', \'The division serves Ilmu Komunikasi students.\', \'The division focuses on financial aspects.\', \'The division focuses on academic aspects.\', \'The division focuses on facility aspects.\', \'The main task is to obtain student information.\', \'The main task is to obtain student aspirations.\', \'Information concerns student finances.\', \'Information concerns student academics.\', \'Information concerns student facilities.\', \'Aspirations concern student finances.\', \'Aspirations concern student academics.\', \'Aspirations concern student facilities.\', \'Information is conveyed to the Ilmu Komunikasi study program.\', \'Aspirations are conveyed to the Ilmu Komunikasi study program.\', \'"himaik_unikom" is a reference.\', \'"himaik.unikom" is a reference.\', \'"HIMAIK UNIKOM OFFICIAL" is a title.\', \'The organization is Himpunan Mahasiswa Ilmu Komunikasi.\', \'The period is 2024-2025.\', \'The cabinet is Antasena.\', \'It is the Communication Science Department.\']\nOutput:'}]]
+[INFO]2025-10-26 22:25:21,259 __init__.py:302: ✅ Steps 2-3 complete: 35 claims, 34 checkworthy
+[INFO]2025-10-26 22:29:56,990 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 22:29:56,991 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 22:29:56,992 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 22:29:56,993 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:29:56,993 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:29:56,993 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:29:56,994 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:29:56,996 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:29:56,997 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:29:56,997 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:29:56,997 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:29:56,998 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:29:56,999 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:29:57,000 __init__.py:180: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 22:29:57,001 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 22:29:57,002 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 22:29:57,237 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 22:29:57,238 __init__.py:222: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 22:29:57,241 multimodal.py:183: Processing modal: image, input: C:\Users\HP\AppData\Local\Temp\tmpms8w52sl.png
+[INFO]2025-10-26 22:29:57,242 multimodal.py:80: Uploading image file: C:\Users\HP\AppData\Local\Temp\tmpms8w52sl.png
+[INFO]2025-10-26 22:30:17,180 multimodal.py:219: Successfully processed modal: image
+[INFO]2025-10-26 22:30:52,503 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 22:30:52,503 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 22:30:52,504 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 22:30:52,504 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:30:52,504 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:30:52,506 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:30:52,507 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:30:52,507 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:30:52,507 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:30:52,508 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:30:52,508 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:30:52,508 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:30:52,508 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:30:52,509 __init__.py:180: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 22:30:52,509 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 22:30:52,509 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 22:30:52,510 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 22:30:52,510 __init__.py:222: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 22:30:52,511 multimodal.py:183: Processing modal: video, input: C:\Users\HP\AppData\Local\Temp\tmpvr2cmzpx.MP4
+[INFO]2025-10-26 22:30:52,511 multimodal.py:120: Uploading video file: C:\Users\HP\AppData\Local\Temp\tmpvr2cmzpx.MP4
+[INFO]2025-10-26 22:31:14,840 multimodal.py:125: Processing video... this may take a moment
+[INFO]2025-10-26 22:31:50,475 multimodal.py:219: Successfully processed modal: video
+[INFO]2025-10-26 22:31:50,477 __init__.py:254: === Starting Fact-Check Pipeline ===
+[INFO]2025-10-26 22:31:50,478 __init__.py:257: Step 1: Decomposing text into claims...
+[INFO]2025-10-26 22:32:35,444 Decompose.py:89: ✅ Successfully extracted 150 claims
+[INFO]2025-10-26 22:32:35,444 __init__.py:264: Steps 2-3: Running with rate-limited parallelism...
+[WARNING]2025-10-26 22:32:35,445 rate_limiter.py:384: ⚠️ Using legacy RateLimitedExecutor. Consider using MultiKeyRateLimitedExecutor for better performance.
+[INFO]2025-10-26 22:32:35,446 __init__.py:273: 📌 Using RateLimitedExecutor for Steps 2-3 (8 RPM)
+[ERROR]2025-10-26 22:32:36,981 rate_limiter.py:445: ❌ Task 3 failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10
+Please retry in 22.554383976s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 22
+}
+]
+[ERROR]2025-10-26 22:34:16,062 rate_limiter.py:445: ❌ Task 1 failed: cannot access local variable 'response' where it is not associated with a value
+[INFO]2025-10-26 22:34:16,065 __init__.py:302: ✅ Steps 2-3 complete: 150 claims, 146 checkworthy
+[INFO]2025-10-26 22:37:01,779 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 22:37:01,787 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 22:37:01,788 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 22:37:01,788 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:37:01,789 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:37:01,791 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:37:01,791 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:37:01,794 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:37:01,795 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:37:01,796 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:37:01,796 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:37:01,797 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:37:01,797 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:38:44,778 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 22:38:44,778 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 22:38:44,779 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 22:38:44,780 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:38:44,780 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:38:44,781 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:38:44,782 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:38:44,783 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:38:44,791 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:38:44,811 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:38:44,813 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:38:44,813 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:38:44,814 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:41:09,109 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 22:41:09,109 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 22:41:09,110 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 22:41:09,113 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:41:09,114 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:41:09,114 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:41:09,115 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:41:09,116 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:41:09,117 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:41:09,117 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:41:09,118 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:41:09,118 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:41:09,119 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:42:28,349 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 22:42:28,350 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 22:42:28,351 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 22:42:28,351 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:42:28,352 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:42:28,353 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:42:28,353 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:42:28,354 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:42:28,354 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:42:28,355 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:42:28,355 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:42:28,357 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:42:28,359 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:57:16,447 __init__.py:87: 🔑 Multi-API-Key Mode: 5 keys detected
+[INFO]2025-10-26 22:57:16,448 __init__.py:88: 📊 Expected throughput: ~50 RPM
+[INFO]2025-10-26 22:57:16,449 __init__.py:101: ⚙️ Max parallel verifications: 5
+[INFO]2025-10-26 22:57:16,449 __init__.py:115: Initializing decompose_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:57:16,450 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:57:16,450 __init__.py:115: Initializing checkworthy_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:57:16,451 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:57:16,452 __init__.py:115: Initializing query_generator_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:57:16,452 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:57:16,453 __init__.py:115: Initializing evidence_retrieval_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:57:16,453 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:57:16,454 __init__.py:115: Initializing claim_verify_model with model: gemini-2.5-flash
+[INFO]2025-10-26 22:57:16,455 __init__.py:122: Auto-detecting LLM client based on model name
+[INFO]2025-10-26 22:57:16,457 __init__.py:180: 🚀 Initializing ClaimVerify with multi-key support...
+[INFO]2025-10-26 22:57:16,461 ClaimVerify.py:38: 🚀 Multi-key OPTIMIZED mode: 5 keys
+[INFO]2025-10-26 22:57:16,462 ClaimVerify.py:39:    → Each claim = 1 API call (batch_size=5)
+[INFO]2025-10-26 22:57:16,859 rate_limiter.py:103: 🚀 MultiKeyRateLimitedExecutor initialized:
+   - API Keys: 5 projects
+   - Per-key rate: 10 RPM, 250 RPD
+   - Combined rate: 50 RPM, 1250 RPD
+   - Workers: 5 parallel threads
+   - Burst: 10 requests per key
+   - Strategy: Token Bucket + Round-Robin Key Rotation
+[INFO]2025-10-26 22:57:16,860 __init__.py:222: === FactCheck Pipeline Initialized Successfully ===
+[INFO]2025-10-26 22:57:16,861 __init__.py:254: === Starting Fact-Check Pipeline ===
+[INFO]2025-10-26 22:57:16,861 __init__.py:257: Step 1: Decomposing text into claims...
+[INFO]2025-10-26 22:57:24,429 Decompose.py:89: ✅ Successfully extracted 2 claims
+[INFO]2025-10-26 22:57:24,429 __init__.py:264: Steps 2-3: Running with rate-limited parallelism...
+[WARNING]2025-10-26 22:57:24,430 rate_limiter.py:384: ⚠️ Using legacy RateLimitedExecutor. Consider using MultiKeyRateLimitedExecutor for better performance.
+[INFO]2025-10-26 22:57:24,431 __init__.py:273: 📌 Using RateLimitedExecutor for Steps 2-3 (8 RPM)
+[ERROR]2025-10-26 22:57:27,390 Decompose.py:180: Parse LLM response error Restore claims not satisfied., response is: {
+  "The China Wall can be seen from space.": "china wall can be seen from space",
+  "The China Wall can be seen by naked AI.": " by naked AI"
+}
+[ERROR]2025-10-26 22:57:27,391 Decompose.py:181: Prompt was: [[{'role': 'system', 'content': 'You are a helpful assistant designed to output JSON.'}, {'role': 'user', 'content': 'Task: Map each claim back to its corresponding text span in the original document.\n\nInstructions:\n1. For each claim, find the minimal continuous span in the original text that contains the information\n2. Return a JSON dict where keys are claims and values are the corresponding text spans\n3. Ensure the spans can be concatenated to form the full original document\n4. Copy spans exactly from the original text\n\nExample:\nText: Mary is a five-year old girl, she likes playing piano and she doesn\'t like cookies.\nClaims: ["Mary is a five-year old girl.", "Mary likes playing piano.", "Mary doesn\'t like cookies."]\n\nOutput:\n{\n  "Mary is a five-year old girl.": "Mary is a five-year old girl,",\n  "Mary likes playing piano.": " she likes playing piano",\n  "Mary doesn\'t like cookies.": " and she doesn\'t like cookies."\n}\n\nNow map these claims:\nText: china wall can be seen from space by naked AI\nClaims: [\'The China Wall can be seen from space.\', \'The China Wall can be seen by naked AI.\']\nOutput:'}]]
+[INFO]2025-10-26 22:57:37,328 __init__.py:302: ✅ Steps 2-3 complete: 2 claims, 1 checkworthy
+[INFO]2025-10-26 22:57:37,329 __init__.py:317: Claim 0: The China Wall can be seen from space. | Origin: {'text': 'china wall can be seen from space', 'start': 0, 'end': 33}
+[INFO]2025-10-26 22:57:37,330 __init__.py:317: Claim 1: The China Wall can be seen by naked AI. | Origin: {'text': 'by naked AI', 'start': 34, 'end': 45}
+[INFO]2025-10-26 22:57:37,330 __init__.py:320: Checkworthy Claim 0: The China Wall can be seen from space.
+[INFO]2025-10-26 22:57:37,331 __init__.py:333: Claim: The China Wall can be seen from space.
+[INFO]2025-10-26 22:57:37,332 __init__.py:334: Queries: ['The China Wall can be seen from space.', 'Is the China Wall visible from space?']
+[INFO]2025-10-26 22:57:37,332 __init__.py:339: Step 4: Retrieving evidence from web...
+[INFO]2025-10-26 22:57:37,333 serper_retriever.py:38: Collecting evidences ...
+[INFO]2025-10-26 22:57:42,568 serper_retriever.py:52: Collected 5 evidences for claim (limited to 5)
+[INFO]2025-10-26 22:57:42,569 serper_retriever.py:56: Collect evidences done!
+[INFO]2025-10-26 22:57:42,570 __init__.py:345: Claim: The China Wall can be seen from space.
+[INFO]2025-10-26 22:57:42,570 __init__.py:346: Evidence count: 5
+[INFO]2025-10-26 22:57:42,571 __init__.py:351: Step 5: Verifying claims against evidence...
+[INFO]2025-10-26 22:57:42,571 __init__.py:353: 🚀 Using 5 API keys for parallel verification!
+[INFO]2025-10-26 22:57:42,572 ClaimVerify.py:71: ================================================================================
+[INFO]2025-10-26 22:57:42,572 ClaimVerify.py:72: 🔍 DEBUG: Input to verify_claims()
+[INFO]2025-10-26 22:57:42,573 ClaimVerify.py:73: ================================================================================
+[INFO]2025-10-26 22:57:42,573 ClaimVerify.py:75: Type of claim_evidences_dict: <class 'dict'>
+[INFO]2025-10-26 22:57:42,573 ClaimVerify.py:76: Number of claims: 1
+[INFO]2025-10-26 22:57:42,574 ClaimVerify.py:79: 
+📋 Claim: The China Wall can be seen from space....
+[INFO]2025-10-26 22:57:42,575 ClaimVerify.py:80:    Type of evidences: <class 'list'>
+[INFO]2025-10-26 22:57:42,576 ClaimVerify.py:81:    Number of evidences: 5
+[INFO]2025-10-26 22:57:42,576 ClaimVerify.py:84:    First evidence type: <class 'tuple'>
+[INFO]2025-10-26 22:57:42,577 ClaimVerify.py:85:    First evidence value: ('The Great Wall of China and Inner Mongolia are featured in this image photographed by Expedition 10 Commander Leroy Chiao on the International Space Station.', 'https://www.nasa.gov/image-article/great-wall/')
+[INFO]2025-10-26 22:57:42,577 ClaimVerify.py:89:    ✅ Tuple format detected
+[INFO]2025-10-26 22:57:42,578 ClaimVerify.py:90:       Length: 2
+[INFO]2025-10-26 22:57:42,579 ClaimVerify.py:92:       Text (first 100 chars): The Great Wall of China and Inner Mongolia are featured in this image photographed by Expedition 10 ...
+[INFO]2025-10-26 22:57:42,580 ClaimVerify.py:93:       URL: https://www.nasa.gov/image-article/great-wall/
+[INFO]2025-10-26 22:57:42,580 ClaimVerify.py:111: ================================================================================
+[INFO]2025-10-26 22:57:42,581 ClaimVerify.py:118: 🔍 Verifying 1 claims...
+[INFO]2025-10-26 22:57:42,581 ClaimVerify.py:129:    🚀 Processing 1 claims IN PARALLEL...
+[INFO]2025-10-26 22:57:42,582 rate_limiter.py:305: 📦 Submitting 1 tasks with 5 workers...
+[INFO]2025-10-26 22:57:42,585 ClaimVerify.py:174:    🔑 key_0 → Claim: The China Wall can be seen from space.... (5 evidences)
+[INFO]2025-10-26 22:58:07,536 ClaimVerify.py:218: ================================================================================
+[INFO]2025-10-26 22:58:07,537 ClaimVerify.py:219: 📝 RAW LLM RESPONSE:
+[INFO]2025-10-26 22:58:07,538 ClaimVerify.py:220: ================================================================================
+[INFO]2025-10-26 22:58:07,538 ClaimVerify.py:221: Type: <class 'str'>
+[INFO]2025-10-26 22:58:07,540 ClaimVerify.py:222: Length: 1729
+[INFO]2025-10-26 22:58:07,540 ClaimVerify.py:223: First 500 chars:
+{
+  "evidence_1": {
+    "reasoning": "This evidence states that the Great Wall was *photographed* from the International Space Station. While it confirms the wall can be detected or imaged from space, it does not confirm or deny whether it is visible to the naked eye, which is the common understanding of the claim.",
+    "relationship": "IRRELEVANT"
+  },
+  "evidence_2": {
+    "reasoning": "This evidence directly refutes the claim by stating that the wall is 'difficult or impossible to see from E
+[INFO]2025-10-26 22:58:07,541 ClaimVerify.py:224: ================================================================================
+[INFO]2025-10-26 22:58:07,541 ClaimVerify.py:230: 📊 PARSED VERDICTS:
+[INFO]2025-10-26 22:58:07,542 ClaimVerify.py:231:    Type: <class 'dict'>
+[INFO]2025-10-26 22:58:07,542 ClaimVerify.py:233:    Keys: ['evidence_1', 'evidence_2', 'evidence_3', 'evidence_4', 'evidence_5']
+[INFO]2025-10-26 22:58:07,543 ClaimVerify.py:234:    Number of evidences: 5
+[INFO]2025-10-26 22:58:07,543 ClaimVerify.py:237: ================================================================================
+[INFO]2025-10-26 22:58:07,543 ClaimVerify.py:263:    ✅ Verified 5 evidences
+[INFO]2025-10-26 22:58:07,545 rate_limiter.py:327: 
+📊 Execution Statistics:
+   - Total items: 1
+   - Total time: 24.96s
+   - Throughput: 0.04 req/s (2.4 req/min)
+   - Avg wait: 0.00s per request
+   - Workers: 5
+
+[INFO]2025-10-26 22:58:07,546 rate_limiter.py:337: 📊 Per-Key Statistics:
+[INFO]2025-10-26 22:58:07,546 rate_limiter.py:340:    key_0: 1 success, 0 failed, daily: 1/250
+[INFO]2025-10-26 22:58:07,546 rate_limiter.py:340:    key_1: 0 success, 0 failed, daily: 0/250
+[INFO]2025-10-26 22:58:07,547 rate_limiter.py:340:    key_2: 0 success, 0 failed, daily: 0/250
+[INFO]2025-10-26 22:58:07,547 rate_limiter.py:340:    key_3: 0 success, 0 failed, daily: 0/250
+[INFO]2025-10-26 22:58:07,547 rate_limiter.py:340:    key_4: 0 success, 0 failed, daily: 0/250
+[INFO]2025-10-26 22:58:07,547 ClaimVerify.py:140: 
+✅ Verification complete:
+   - Claims: 1
+   - Duration: 24.97s
+   - Avg per claim: 24.97s
+[INFO]2025-10-26 22:58:07,548 __init__.py:375: Claim: The China Wall can be seen from space. | Verifications: 5
+[INFO]2025-10-26 22:58:07,548 __init__.py:383: === Pipeline Complete ===
+Total time: 50.69s
+  - Claim processing: 20.47s
+  - Evidence retrieval: 5.24s
+  - Verification: 24.98s (0.0 req/s)
+
+[INFO]2025-10-26 22:58:07,548 __init__.py:592: === Overall Factuality Score: 0.00 ===
