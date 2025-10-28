@@ -5,6 +5,8 @@ import traceback
 import asyncio
 from typing import Optional, Dict, Any
 from pathlib import Path
+import google.generativeai as genai
+
 
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.responses import JSONResponse, FileResponse
@@ -233,6 +235,10 @@ async def analyze(
 
         else:
             raise HTTPException(status_code=400, detail="Unsupported combination of inputs.")
+        results.update({
+            "summary": generate_summary(results)
+        })
+        print(results)
 
         return JSONResponse(status_code=200, content={"status": "ok", "results": results})
 
@@ -246,6 +252,35 @@ async def analyze(
                 os.remove(p)
             except Exception:
                 pass
+
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if GEMINI_API_KEY:
+    genai.configure(api_key=GEMINI_API_KEY)
+
+
+def generate_summary(analysis_results: Dict[str, Any]) -> str:
+
+    if not GEMINI_API_KEY:
+        return "Gemini API key not configured. Summary not available."
+
+    try:
+        model = genai.GenerativeModel("gemini-2.5-flash")
+
+        prompt = (
+            "You are an AI summarizer for a misinformation detection system. "
+            "Given the following analysis results (including bias, deepfake, AI-generated content, etc.), "
+            "write a short and direct summary describing what the analysis indicates. "
+            "Focus only on whether the content appears trustworthy or manipulated. "
+            "Be factual, neutral, and limit to 3 concise sentences.\n\n"
+            f"Analysis results:\n{analysis_results}"
+        )
+
+        response = model.generate_content(prompt)
+        return response.text.strip() if response and response.text else "No summary generated."
+    except Exception as e:
+        traceback.print_exc()
+        return f"Error generating summary: {str(e)}"
+   
 
 
 @app.get("/api/health")
