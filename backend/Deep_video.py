@@ -3,7 +3,9 @@ import sys
 import warnings
 warnings.filterwarnings('ignore')
 import cv2
-from moviepy import VideoFileClip
+# from moviepy import VideoFileClip
+from moviepy.editor import VideoFileClip
+
 from transformers import (
         AutoImageProcessor, 
         SiglipForImageClassification,

@@ -25,36 +25,62 @@ class QueryGenerator:
         Returns:
             dict: a dictionary of claims and their corresponding generated questions.
         """
-        generated_questions = [[]] * len(claims)
+        generated_questions = {}
         attempts = 0
 
-        # construct messages
-        messages_list = []
-        for claim in claims:
-            if prompt is None:
-                user_input = self.prompt.qgen_prompt.format(claim=claim)
-            else:
-                user_input = prompt.format(claim=claim)
-            messages_list.append(user_input)
-
-        while (attempts < generating_time) and ([] in generated_questions):
-            _messages = [_message for _i, _message in enumerate(messages_list) if generated_questions[_i] == []]
-            _indices = [_i for _i, _message in enumerate(messages_list) if generated_questions[_i] == []]
-
-            _message_list = self.llm_client.construct_message_list(_messages)
-            _response_list = self.llm_client.multi_call(_message_list)
-
-            for _response, _index in zip(_response_list, _indices):
-                try:
-                    _questions = eval(_response)["Questions"]
-                    generated_questions[_index] = _questions
-                except:  # noqa: E722
-                    logger.info(f"Warning: LLM response parse fail, retry {attempts}.")
+        while (attempts < generating_time) and (len(generated_questions) < len(claims)):
+            try:
+                # Create a single prompt with all claims
+                if prompt is None:
+                    user_input = self._create_batch_prompt(claims)
+                else:
+                    user_input = prompt.format(claims=claims)
+                
+                # Use single call instead of multi_call
+                messages = self.llm_client.construct_message_list([user_input])[0]
+                response = self.llm_client.call([messages])
+                
+                # Parse the response
+                parsed_response = eval(response)
+                
+                # Extract questions for each claim
+                for claim in claims:
+                    if claim in parsed_response and claim not in generated_questions:
+                        generated_questions[claim] = parsed_response[claim]
+                
+            except Exception as e:
+                logger.info(f"Warning: LLM response parse fail, retry {attempts}. Error: {e}")
+            
             attempts += 1
 
-        # ensure that each claim has at least one question which is the claim itself
+        # Ensure that each claim has at least one question which is the claim itself
         claim_query_dict = {
-            _claim: [_claim] + _generated_questions[: (self.max_query_per_claim - 1)]
-            for _claim, _generated_questions in zip(claims, generated_questions)
+            claim: [claim] + generated_questions.get(claim, [])[:(self.max_query_per_claim - 1)]
+            for claim in claims
         }
         return claim_query_dict
+
+    def _create_batch_prompt(self, claims: list[str]) -> str:
+        """Create a prompt for generating questions for multiple claims at once"""
+        claims_formatted = "\n".join([f"{i+1}. {claim}" for i, claim in enumerate(claims)])
+        
+        batch_prompt = f"""Task: Create the minimum number of questions needed to verify the correctness of each given claim.
+
+    Instructions:
+    1. Generate only essential questions to verify each claim
+    2. Questions should be specific and directly related to the claim
+    3. Output in JSON format where each key is the claim text and the value is a list of questions
+
+    Claims:
+    {claims_formatted}
+
+    Output format:
+    {{
+    "claim text 1": ["question"],
+    "claim text 2": ["question"],
+    ...
+    }}
+
+    Output:
+    """
+        return batch_prompt

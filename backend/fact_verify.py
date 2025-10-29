@@ -95,8 +95,9 @@ class FactCheckApp:
             content = ""
             modal = "text"
             input_path = None
-
-            if text_file:
+            if input_text:
+                content = input_text
+            elif text_file:
                 with open(text_file, "r", encoding="utf-8") as f:
                     content = f.read()
                 modal = "text"
@@ -109,10 +110,9 @@ class FactCheckApp:
             elif video_file:
                 input_path = video_file
                 modal = "video"
-            if input_text:
-                content = input_text
             else:
                 raise ValueError("No input provided.")
+
 
             if modal in ["speech", "image", "video"]:
                 print(f"🎥 Converting {modal} to text...")

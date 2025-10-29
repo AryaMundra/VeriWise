@@ -52,13 +52,12 @@ class GeminiClient(BaseClient):
             model_name=self.model,
             generation_config=generation_config,
         )
-
-    def _call(self, messages: List[Dict[str, str]], **kwargs) -> str:
+    def _call(self, messages, **kwargs) -> str:
         """
         Call Gemini API with the given messages.
         
         Args:
-            messages: List of message dicts with 'role' and 'content'
+            messages: A list of message dicts with 'role' and 'content'
             **kwargs: Additional arguments (seed is accepted but not used by Gemini)
         
         Returns:
@@ -67,6 +66,15 @@ class GeminiClient(BaseClient):
         seed = kwargs.get("seed", 5)
         if not isinstance(seed, int):
             raise ValueError("Seed must be an integer.")
+        
+        # Ensure messages is a list of dicts
+        if not isinstance(messages, list):
+            raise ValueError(f"Expected messages to be a list, got {type(messages)}")
+        
+        # If the list contains a nested list, unwrap it
+        if len(messages) > 0 and isinstance(messages[0], list):
+            messages = messages[0]
+        
         prompt = self._convert_messages_to_prompt(messages)
         
         try:
@@ -76,7 +84,8 @@ class GeminiClient(BaseClient):
             if response.candidates:
                 r = response.candidates[0].content.parts[0].text
             else:
-                raise ValueError("No response candidates returned ")
+                raise ValueError("No response candidates returned")
+            
             if hasattr(response, "usage_metadata") and response.usage_metadata:
                 self._log_usage(usage_dict=response.usage_metadata)
             else:

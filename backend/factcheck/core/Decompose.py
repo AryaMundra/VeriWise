@@ -151,7 +151,7 @@ class Decompose:
         
         for i in range(num_retries):
             try:
-                response = self.llm_client.call(
+                response = self.llm_client._call(
                     messages=messages,
                     num_retries=1,
                     seed=42 + i,

@@ -123,7 +123,7 @@ class FactCheck:
         # Create 3 separate clients for Steps 2-3 parallelism
         gemini_key_1 = api_config.get("GEMINI_API_KEY")
         gemini_key_2 = api_config.get("GEMINI_API_KEY_2")
-        gemini_key_3 = api_config.get("GEMINI_API_KEY_3")
+        gemini_key_3 = api_config.get("GEMINI_API_KEY_MEDIA")
         
         # Client 1: For decomposer (restore_claims)
         decompose_client = LLMClient(
@@ -279,10 +279,10 @@ class FactCheck:
         def task_queries():
             return self.query_generator.generate_query(claims=claims)
 
-        results = executor.map(
-            lambda f: f(),
-            [task_restore, task_checkworthy, task_queries]
-        )
+        results = []
+        results.append(task_restore())
+        results.append(task_checkworthy())
+        results.append(task_queries())
 
         claim2doc = results[0]
         checkworthy_claims, claim2checkworthy = results[1]
