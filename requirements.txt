@@ -7,11 +7,8 @@ moviepy
 numpy
 requests
 python-dotenv
-openai
 google-generativeai
-python-dotenv
 requests
 torch
 transformers
 librosa
-python-multipart 
